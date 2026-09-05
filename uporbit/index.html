@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <title>UPOrbit - 7 jours</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>UPOrbit</h1><br>
+    <p>
+      <h2>Prévisions météorologiques</h2>
+      <i>Choisissez une ville pour voir la météo de la semaine</i>
+    </p><br>
+    <p class="powered-by">Powered by <a href="https://www.7timer.info/" target="_blank">7Timer!</a></p><br>
+
+    <select id="city-select"></select><br>
+
+    <p class="unit-toggle" id="unit-toggle" style="display: none;">
+      Utilisez <span id="unit-label">Celsius</span>.
+      <a href="#" id="unit-switch">Passez en Fahrenheit.</a>
+    </p>
+
+    <div id="results"></div>
+
+    <!-- Inclure le script JavaScript -->
+    <script src="script.js"></script>
+
+    <footer class="site-footer">
+      <div class="footer-line">
+        <svg class="footer-cloud-icon" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+          <!-- Nuage du fond : contour clair, décalé vers le haut -->
+            <path class="cloud-back" d="M14 18 a8 8 0 0 1 15-4 a6 6 0 0 1 9 6 h-1 a6 6 0 0 1 -1 12 h-16 a7 7 0 0 1 -6-14z"/>
+            <!-- Nuage de devant : plein, décalé vers le bas -->
+            <path class="cloud-front" d="M10 26 a8 8 0 0 1 15-4 a6 6 0 0 1 9 6 h-1 a6 6 0 0 1 -1 12 h-16 a7 7 0 0 1 -6-14z"/>
+        </svg>        
+      </div>
+      <p>© Copyright 2026 UPOrbit.</p>
+    </footer>
+
+  </body>
+</html>

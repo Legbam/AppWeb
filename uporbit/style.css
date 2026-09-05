@@ -1,0 +1,214 @@
+/*  Le fond de la page en bleu nuit */
+body {
+  font-family: Arial, sans-serif;
+  color: white;
+  text-align: center;
+  padding: 40px;
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /* ==========================================================
+     On empile PLUSIEURS fonds, séparés par des virgules :
+     1) Le motif SVG (nuages + avions) en tout premier plan,
+        répété en mosaïque (background-repeat)
+     2) Les radial-gradient (lueurs diffuses)
+     3) Le dégradé bleu nuit, tout en dessous
+     ========================================================== */
+  background-image: 
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><g fill='none' stroke='white' stroke-width='2' opacity='0.06'><path d='M40 60 L70 60 L100 40 L105 45 L85 65 L120 65 L130 75 L85 75 L70 95 L60 95 L70 75 L20 75 Z'/></g><g fill='white' opacity='0.05'><ellipse cx='220' cy='180' rx='35' ry='18'/><ellipse cx='245' cy='170' rx='25' ry='15'/><ellipse cx='195' cy='175' rx='22' ry='13'/></g><g fill='none' stroke='white' stroke-width='2' opacity='0.05' transform='rotate(20 150 240)'><path d='M120 250 L150 250 L180 232 L185 237 L165 255 L200 255 L210 265 L165 265 L150 285 L140 285 L150 265 L100 265 Z'/></g></svg>"),
+    radial-gradient(circle at 20% 15%, rgba(255, 255, 255, 0.12) 0%, transparent 30%),
+    radial-gradient(circle at 75% 25%, rgba(255, 255, 255, 0.10) 0%, transparent 25%),
+    radial-gradient(circle at 40% 70%, rgba(255, 255, 255, 0.08) 0%, transparent 35%),
+    radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.06) 0%, transparent 30%),
+    linear-gradient(180deg, #030a1f 0%, #0a1a3a 45%, #123a70 100%);
+  background-repeat: repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+  background-attachment: fixed;
+}
+
+h1 {
+    color: #d8bd0d;
+    text-decoration: underline;
+}
+
+/*  Style du menu déroulant et du bouton */
+select, button {
+  font-size: 16px;
+  padding: 8px 12px;
+  margin: 10px;
+  border-radius: 6px;
+  border: none;
+}
+
+/*  Le bouton se démarque avec une couleur vive */
+button {
+  background-color: #ffcc00;
+  cursor: pointer;
+}
+
+
+
+/*  Conteneur qui aligne les cartes côte à côte, avec retour à la ligne si nécessaire */
+.forecast-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+/* Chaque carte représente un jour */
+.day-card{
+    background-color: #0d2a5c;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    padding: 15px 10px;
+    width: 110px;
+    text-align: center;
+}
+
+.day-label {
+    font-weight: bold;
+    color: #ffcc00;
+    margin-bottom: 8px;
+}
+
+.day-icon {
+    font-size: 40px;
+    margin: 8px 0;
+}
+
+.day-desc {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+    min-height: 28px; /* pour aligner les cartes même si le texte fait 1 ou 2 lignes */
+}
+
+.day-temp-high {
+    font-weight: bold;
+    margin: 2px 0;
+}
+
+.day-temp-low {
+    color: #a0b8d8;
+    margin: 2px 0;
+}
+
+/*  Conteneur pour le message de chargement */
+
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    /* Une bordure presque transparente, sauf sur un côté (top) */
+    border: 5px solid rgba(255, 255, 255, 0.15);
+    border-top: 5px solid #ffcc00;
+    border-radius: 50%; /* transformée en cercle */
+    animation: spin 1s linear infinite;
+}
+
+/* ==========================================================
+   @keyframes définit les étapes d'une animation CSS.
+   Ici : "spin" tourne l'élément de 0 à 360 degrés en continu.
+   ========================================================== */
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.day-icons {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin: 8px 0;
+}
+
+
+.day-icons .day-icon {
+    font-size: 32px; /* un peu plus petit pour que les deux tiennent côte à côte */
+    margin: 0;
+}
+
+.site-footer {
+    width: 100%;
+    max-width: 500px;
+    margin-top: auto;
+    padding-top: 20px;
+}
+
+.site-footer p {
+    font-size: 13px;
+    color: #a0b8d8;
+}
+
+.footer-line {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.footer-line::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.footer-cloud-icon {
+    position: relative;
+    width: 44px;
+    height: 30px;
+    /* Masque la ligne du fond derrière l'icône, comme avant */
+    background: #0a1a3a;
+    padding: 0 5px;
+}
+
+/* ==========================================================
+   Le nuage du fond : juste un contour (pas de remplissage),
+   en gris clair semi-transparent, positionné plus haut
+   ========================================================== */
+.cloud-back {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.5);
+    stroke-width: 1.5;
+}
+
+/* ==========================================================
+   Le nuage de devant : rempli en blanc, positionné plus bas,
+   passe donc visuellement "devant" le premier
+   ========================================================== */
+.cloud-front {
+    fill: #dce8fa;
+}
+
+.unit-toggle {
+    font-size: 14px;
+    color: #a0b8d8;
+    margin: 5px 0 20px 0;
+}
+
+.unit-toggle a {
+    color: #7ee0e0;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.unit-toggle a:hover {
+    text-decoration: skyblue;
+}
