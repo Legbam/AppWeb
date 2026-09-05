@@ -4,14 +4,14 @@ Ce dépôt regroupe mes projets web front-end et full-stack, réalisés dans une
 
 ## 📂 Projets
 
-### 🌍 [European Weather Forecast](./european-weather-forecast)
-Application météo interactive affichant les prévisions sur 7 jours pour les grandes villes européennes, via l'API 7Timer.
+### 🌍 [UPOrbit](./uporbit)
+Application météo interactive affichant les prévisions sur 7 jours pour certaines villes européennes, via l'API 7Timer.
 
 **Points forts techniques :** intégration d'une API externe, JavaScript asynchrone (`async`/`await`), traitement de données JSON, résolution d'un problème CORS via un proxy PHP maison, bascule Celsius/Fahrenheit en temps réel, interface personnalisée.
 
 `HTML` `CSS` `JavaScript` `PHP` `API REST`
 
-➡️ [Voir le projet](./european-weather-forecast) · [README détaillé](./european-weather-forecast/README.md)
+➡️ [Voir le projet](./uporbit) · [README détaillé](./uporbit/README.md)
 
 ---
 
