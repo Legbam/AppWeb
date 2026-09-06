@@ -19,6 +19,18 @@
                 <!-- Les tâches seront ajoutées ici -->
             </ul>
 
+            <!-- Filtres pour afficher toutes / actives / terminées -->
+             <div class="filters">
+                <button class="filter-btn active" data-filter="all">Toutes</button>
+                <button class="filter-btn" data-filter="active">Actives</button>
+                <button class="filter-btn" data-filter="done">Terminées</button>
+            </div>
+
+            <!-- Compteur de tâche restantes -->
+            <p id="taskCounter"></p>
+
+            <button id="clearDoneBtn" class="clear-done">Effacer les terminées</button>
+
             <!-- Bouton pour le thème sombre -->
             <button id="toggleTheme">🌙 Mode sombre</button>
         </div>
